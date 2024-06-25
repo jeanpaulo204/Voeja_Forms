@@ -20,7 +20,6 @@ const ListaDeDados = () => {
         throw error;
       }
 
-      
       setDados(data);
       setFilteredDados(data);
     } catch (error) {
@@ -47,23 +46,23 @@ const ListaDeDados = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Lista de Dados</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Lista de Dados</h1>
       <input
         type="text"
         placeholder="Filtrar por Nome Completo"
-        className="mb-4 p-2 border border-gray-300 rounded"
+        className="mb-6 w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-300"
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
       />
       {dados.length === 0 ? (
-        <p className="text-gray-500">Carregando dados...</p>
+        <p className="text-gray-500 text-center">Carregando dados...</p>
       ) : (
         <div className="overflow-x-auto">
           {filteredDados.length === 0 ? (
-            <p className="text-gray-500">Nenhum dado encontrado.</p>
+            <p className="text-gray-500 text-center">Nenhum dado encontrado.</p>
           ) : (
-            <table className="min-w-full bg-white border border-gray-300">
-              <thead>
+            <table className="min-w-full bg-white border border-gray-300 shadow-md rounded-lg">
+              <thead className="bg-gray-50">
                 <tr>
                   {[
                     "ID",
@@ -82,7 +81,7 @@ const ListaDeDados = () => {
                   ].map((header) => (
                     <th
                       key={header}
-                      className="px-6 py-3 border-b-2 border-gray-300 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                      className="px-6 py-3 border-b-2 border-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
                     >
                       {header}
                     </th>
@@ -92,19 +91,19 @@ const ListaDeDados = () => {
               <tbody>
                 {filteredDados.map((dado) => (
                   <tr key={dado.id} className="hover:bg-gray-100">
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.id}</td>
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.NomeCompleto}</td>
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.DataDeNascimento}</td>
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.Telefone}</td>
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.Email}</td>
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.CEP}</td>
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.LOGRADOURO}</td>
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.NUMERODACASA}</td>
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.COMPLEMENTO}</td>
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.BAIRRO}</td>
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.CIDADE}</td>
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.ESTADO}</td>
-                    <td className="px-6 py-4 border-b border-gray-200">{dado.PAIS}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.id}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.NomeCompleto}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.DataDeNascimento}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.Telefone}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.Email}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.CEP}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.LOGRADOURO}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.NUMERODACASA}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.COMPLEMENTO}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.BAIRRO}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.CIDADE}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.ESTADO}</td>
+                    <td className="px-6 py-4 border-b border-gray-200 text-sm">{dado.PAIS}</td>
                   </tr>
                 ))}
               </tbody>
